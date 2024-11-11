@@ -4045,11 +4045,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pedro\\source\\repos\\BudgetTool\\BudgetTool\\BudgetTool.csproj",
+      "projectUniqueName": "C:\\Users\\Pedro\\source\\gitHubRepos\\budgetTool\\BudgetTool\\BudgetTool.csproj",
       "projectName": "BudgetTool",
-      "projectPath": "C:\\Users\\Pedro\\source\\repos\\BudgetTool\\BudgetTool\\BudgetTool.csproj",
+      "projectPath": "C:\\Users\\Pedro\\source\\gitHubRepos\\budgetTool\\BudgetTool\\BudgetTool.csproj",
       "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pedro\\source\\repos\\BudgetTool\\BudgetTool\\obj\\",
+      "outputPath": "C:\\Users\\Pedro\\source\\gitHubRepos\\budgetTool\\BudgetTool\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",

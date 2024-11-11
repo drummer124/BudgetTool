@@ -35,6 +35,16 @@ namespace BudgetTool.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult SaveTransaction(TransactionHistory model)
+        {
+            if (ModelState.IsValid)
+            {
+                return Json(new { success = true });
+            }
+            return Json(new { success = false, message = "Invalid data" });
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
