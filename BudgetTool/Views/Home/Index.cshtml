@@ -1,0 +1,93 @@
+﻿@model BudgetTool.Models.jointModels
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Lets budget together!</h1>
+    </br>
+    <p>Need to submit an item? <button type="button">Click here!</button></p>
+</div>
+
+<div>
+    <p>Add another category? <button type="button">New Categories</button></p>
+</div>
+
+
+<!-- Button to display for transaction input -->
+
+<button id="popupButton" class="btn btn-primary">Input Transaction</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Transaction record</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add your content here -->
+                This is a popup!
+
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+                @if (Model != null)
+                {
+                    <form id="myForm" action="/submit" method="post">
+                        <input type="text" name=@Model.TransactionHistory.TransactionName placeholder="Transaction Name" />
+                        <input type="text" name=@Model.TransactionHistory.TransactionAmount placeholder="Amount" />
+                        <button type="button" id="submitButton">Submit</button>
+                    </form>
+                }
+                else
+                {
+                    <p>Model is null</p>
+                }
+
+                <script>
+                    $('#submitButton').click(function () {
+                        $.ajax({
+                            url: $('#myForm').attr('action'),
+                            type: 'POST',
+                            data: $('#myForm').serialize(),
+                            success: function (response) {
+                                alert("Form submitted successfully!");
+                                // Optionally, handle the response (e.g., update the page dynamically)
+                            },
+                            error: function (error) {
+                                alert("An error occurred.");
+                            }
+                        });
+                    });
+                </script>
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("popupButton").addEventListener("click", function() {
+        $('#myModal').modal('show');
+    });
+</script>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<!-- End: Button to display for transaction input -->
